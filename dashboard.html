@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notifications</title>
+</head>
+
+<body>
+
+<h2>Your Item Claims</h2>
+
+<table border="1">
+
+<tr>
+<th>Item</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Message</th>
+</tr>
+
+{% for claim in claims %}
+
+<tr>
+<td>{{claim.title}}</td>
+<td>{{claim.name}}</td>
+<td>{{claim.phone}}</td>
+<td>{{claim.email}}</td>
+<td>{{claim.message}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

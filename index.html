@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lost & Found Portal</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color:#f4f4f4;
+            margin:0;
+            padding:0;
+        }
+
+        header{
+            background:#2c3e50;
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        nav{
+            background:#34495e;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            margin:10px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            margin-top:20px;
+        }
+
+        .item{
+            background:white;
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:8px;
+            box-shadow:0px 0px 5px gray;
+        }
+
+        .lost{
+            border-left:5px solid red;
+        }
+
+        .found{
+            border-left:5px solid green;
+        }
+
+        button{
+            background:#3498db;
+            color:white;
+            border:none;
+            padding:8px 15px;
+            cursor:pointer;
+            border-radius:5px;
+        }
+
+        button:hover{
+            background:#2980b9;
+        }
+
+        .search{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        input{
+            padding:8px;
+            width:200px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Campus Lost & Found Portal</h1>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/report">Report Item</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+</nav>
+
+<div class="container">
+
+<div class="search">
+
+<form action="/search">
+
+<input type="text" name="q" placeholder="Search item">
+
+<button type="submit">Search</button>
+
+</form>
+
+</div>
+
+<h2>Recent Items</h2>
+
+{% for item in items %}
+
+<div class="item {{item.type}}">
+
+<h3>{{item.title}}</h3>
+
+<p><b>Description:</b> {{item.description}}</p>
+
+<p><b>Location:</b> {{item.location}}</p>
+
+<p><b>Status:</b> {{item.type}}</p>
+
+<!-- CLAIM BUTTON -->
+
+<a href="/claim/{{ item.id }}">
+<button>Claim Item</button>
+</a>
+<a href="/dashboard">Notifications</a>
+
+
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
